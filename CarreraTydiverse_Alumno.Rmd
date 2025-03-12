@@ -155,23 +155,31 @@ cran_selected_range <- cran %>%
 5. Puedes usar el signo (-) para no coger una columna determinada. Selecciona todas las columnas menos las que están entre `date y size` 
 ```{r}
 
+cran_selected_excl <- cran %>%
+  select(-(date:size))
+
+cran_selected_excl
 
 
 
 ```
 6. Elige aquellos registros en los que se haya descargado el paquete `plotly`, desde un sistema que ejecuta la versión de R 3.5.1
 ```{r}
+cran_filtered <- cran %>%
+  filter(package == "plotly" & R.version == "3.5.1")
 
 ```
 6. Elige aquellas descargas realizadas desde España (ES), con versiones de R superiores a la 3.4.0
 ```{r}
-
+cran_filtered_es <- cran %>%
+  filter(country == "ES" & as.numeric(sub("R-", "", R.version)) > 3.4)
 ```
 
 7. Elige aquellas descargas realizadas desde España (ES), o Portugal (PT).
 ```{r}
 
-
+cran_filtered_es_pt <- cran %>%
+  filter(country %in% c("ES", "PT"))
 
 ```
 
