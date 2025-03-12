@@ -195,9 +195,13 @@ head(descargas_filtradas)
 ```
 9. Elige aquellas descargas en las que la versión del sistema operativo no está vacía.
 ```{r}
- library(dplyr)
+ 
+
+descargas_con_os_version <- raw %>%
+  filter(os_version != "")
 
 
+head(descargas_con_os_version)
 
 
 ```
