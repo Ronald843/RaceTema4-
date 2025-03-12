@@ -183,12 +183,22 @@ cran_filtered_es_pt <- cran %>%
 
 ```
 
-8. Elige aquellas descargas cuyo tamaño supera los 100500 bytes desde un sistema operativo  `linux-gnu`.
+8. Elige aquellas desc9argas cuyo tamaño supera los 100500 bytes desde un sistema operativo  `linux-gnu`.
 ```{r}
+descargas_filtradas <- raw %>%
+  filter(size > 100500, os == "linux-gnu")
+
+
+head(descargas_filtradas)
+
 
 ```
 9. Elige aquellas descargas en las que la versión del sistema operativo no está vacía.
 ```{r}
+ library(dplyr)
+
+
+
 
 ```
 10. Almacena en `cran2` todas las columnas entre `size` y `ip_id`. 
